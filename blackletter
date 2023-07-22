@@ -1,0 +1,16 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use utf8;
+use open ":std", ":encoding(UTF-8)";
+
+my $latin_upper = join("", ("A".."Z"));
+my $latin_lower = join("", ("a".."z"));
+my $bl_upper = "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ";
+my $bl_lower = "𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷";
+
+while (<>) {
+    eval "tr/$latin_upper$latin_lower/$bl_upper$bl_lower/;";
+    print "$_";
+}
